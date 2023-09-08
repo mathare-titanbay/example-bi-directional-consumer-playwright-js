@@ -3,6 +3,10 @@ const { test, expect } = require('@playwright/test')
 const testData = require('./fixtures/products.json')
 const { transformPlaywrightMatchToPact } = require('./playwrightSerialiser')
 
+import * as dotenv from 'dotenv';
+
+dotenv.config({ path: '.env' });
+
 test('products page', async ({ page }) => {
   const productApiPath = process.env.REACT_APP_API_BASE_URL
     ? process.env.REACT_APP_API_BASE_URL
